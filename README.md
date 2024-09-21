@@ -1,10 +1,10 @@
 # InterruptAtomicCompareExchange
 
-This project demonstrates how to safely handle interrupts in an embedded system using atomic operations to avoid race conditions. Specifically, it showcases the usage of `atomic_compare_exchange_strong` to handle flag ownership between the main loop and an interrupt handler. The project is built using Keil uVision and is targeted for the Tiva Launchpad board.
+This project demonstrates how to safely handle interrupts in an embedded system using atomic operations to avoid race conditions. Specifically, it showcases the usage of `atomic_compare_exchange_strong` to handle flag ownership between the main loop and an interrupt handler. The project is built using Keil uVision and is targeted for the STM32F401RE microcontroller.
 
 ## Features:
-- **Platform**: Tiva Launchpad (TM4C123G)
-- **Tools**: Keil uVision IDE (I suspect Code Composer works too, I just checked in the sources, no projects).
+- **Platform**: STM32F401RE
+- **Tools**: Keil uVision IDE (I suspect STMCubeIDE works too, I just checked in the sources, no projects).
 - **Dependency**: This project depends on the Valvano Texas Instruments COM port reader, which can be obtained by downloading ValvanoWaveTMC123v6.zip from the [Valvano website](https://users.ece.utexas.edu/~valvano/arm/#FSM).
 
 ### Project Overview:
@@ -16,9 +16,9 @@ The main goal of this project is to demonstrate how to use atomic operations to 
 - **TIM2 Interrupt**: TIM2 is configured to trigger an interrupt periodically. The interrupt handler checks and sets the atomic flag, and if successful, it prints a message over UART.
 
 ### Setup:
-1. **Board**: Tiva Launchpad (TM4C123G)
+1. **Board**: STM32F401RE
 2. **Valvano COM Port Reader**: The project assumes you have the Valvano COM port reader for observing UART output.
-3. **Keil uVision**: This project is set up to run in the Keil uVision IDE, create new project and add these files.  Code Composer should work too, configure the Terminal to serial and COM3 if you are using the Stellaris ICDI driver.
+3. **Keil uVision**: This project is set up to run in the Keil uVision IDE, create new project and add these files.  STMCubeIDE should work too, configure the Terminal to serial and COM5 if you are using ST-Link drivers for usb.
 
 ### Usage:
 1. **Clone the repository**:
